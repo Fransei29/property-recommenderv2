@@ -1,0 +1,251 @@
+/**
+ * Estilos para el componente PropertyDetail
+ */
+
+.propertyDetail {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: transparent;
+  min-height: 100vh;
+  position: relative;
+}
+
+.backButtonContainer {
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: white;
+  color: var(--color-primary);
+  border: 2px solid white;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background: var(--color-background-light);
+    border-color: var(--color-primary);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+  }
+
+  svg {
+    transition: transform 0.3s ease;
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover svg {
+    transform: translateX(-3px);
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.imageSection {
+  .imageContainer {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-large);
+  }
+
+  .mainImage {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .favoriteButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--color-text-muted);
+
+    &:hover {
+      background: white;
+      transform: scale(1.1);
+    }
+
+    &.favorited {
+      color: var(--color-accent);
+      background: white;
+    }
+  }
+}
+
+.infoSection {
+  .header {
+    margin-bottom: 1.5rem;
+
+    .title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin: 0 0 1rem 0;
+      line-height: 1.2;
+    }
+
+    .price {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+  }
+
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+
+    svg {
+      color: var(--color-primary);
+    }
+  }
+
+  .specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    .spec {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: var(--color-background-light);
+      border-radius: var(--border-radius);
+      font-weight: 500;
+
+      svg {
+        color: var(--color-primary);
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  .description {
+    margin-bottom: 2rem;
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0 0 1rem 0;
+      color: var(--color-text);
+    }
+
+    p {
+      line-height: 1.6;
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+  }
+
+  .features {
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0 0 1rem 0;
+      color: var(--color-text);
+    }
+
+    .featuresList {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      .feature {
+        background: var(--color-primary-light);
+        color: var(--color-primary);
+        padding: 0.5rem 1rem;
+        border-radius: var(--border-radius);
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.recommendationsSection {
+  border-top: 1px solid var(--color-border);
+  padding-top: 2rem;
+
+  .recommendationsTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+    color: var(--color-text);
+  }
+}
+
+// Responsive
+@media (max-width: 480px) {
+  .propertyDetail {
+    padding: 1rem;
+  }
+
+  .content {
+    gap: 1.5rem;
+  }
+
+  .infoSection {
+    .header {
+      .title {
+        font-size: 1.5rem;
+      }
+
+      .price {
+        font-size: 1.25rem;
+      }
+    }
+
+    .specs {
+      grid-template-columns: 1fr;
+    }
+  }
+} 
