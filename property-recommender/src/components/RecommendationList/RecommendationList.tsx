@@ -28,8 +28,12 @@ export const RecommendationList: React.FC<RecommendationListProps> = ({
 
       {/* Lista de recomendaciones */}
       <div className={styles.grid}>
-        {recommendations.map((recommendation, index) => (
-          <div key={recommendation.property.id} className={styles.recommendationItem}>
+        {recommendations.map((recommendation) => (
+          <div
+            key={recommendation.property.id}
+            className={styles.recommendationItem}
+            onClick={() => onPropertyClick(recommendation.property)}
+          >
             {/* Tarjeta de propiedad */}
             <PropertyCard
               property={recommendation.property}

@@ -33,15 +33,18 @@ export default function HomePage() {
 
   // Cargar propiedades al inicializar
   useEffect(() => {
-    try {
-      const loadedProperties = getPropertiesWithDescription();
-      console.log('Properties loaded:', loadedProperties.length);
-      setProperties(loadedProperties);
-    } catch (error) {
-      console.error('Error loading properties:', error);
-    } finally {
-      setLoading(false);
-    }
+    const loadProperties = async () => {
+      try {
+        const loadedProperties = await getPropertiesWithDescription();
+        setProperties(loadedProperties);
+      } catch (error) {
+        console.error('Error loading properties:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProperties();
   }, []);
 
   // Hooks personalizados
@@ -50,10 +53,10 @@ export default function HomePage() {
 
   // Debug: Verificar que las propiedades se pasan correctamente
   useEffect(() => {
-    console.log('Properties state updated:', properties.length);
+    console.log('Properties loaded:', properties.length);
   }, [properties]);
 
-  // Propiedades filtradas y paginadas
+  // Obtener propiedades paginadas
   const paginatedProperties = useMemo(() => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
@@ -68,7 +71,7 @@ export default function HomePage() {
   // Actualizar filtros cuando cambie la búsqueda
   useEffect(() => {
     recommendations.updateFilters({ searchQuery });
-  }, [searchQuery]);
+  }, [searchQuery, recommendations]);
 
   // Resetear página cuando cambien los filtros
   useEffect(() => {
@@ -92,7 +95,6 @@ export default function HomePage() {
 
   // Obtener la propiedad seleccionada
   const selectedProperty = useMemo(() => {
-    if (!selectedPropertyId) return null;
     return properties.find(p => p.id === selectedPropertyId) || null;
   }, [selectedPropertyId, properties]);
 

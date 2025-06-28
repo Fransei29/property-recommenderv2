@@ -6,11 +6,13 @@ import Link from 'next/link';
 import styles from '../auth.module.scss';
 
 export default function SignUpPage() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: ''
+  });
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const router = useRouter();
@@ -22,13 +24,13 @@ export default function SignUpPage() {
     setSuccess('');
 
     // Validaciones básicas
-    if (password !== confirmPassword) {
+    if (formData.password !== confirmPassword) {
       setError('Las contraseñas no coinciden');
       setIsLoading(false);
       return;
     }
 
-    if (password.length < 6) {
+    if (formData.password.length < 6) {
       setError('La contraseña debe tener al menos 6 caracteres');
       setIsLoading(false);
       return;
@@ -43,7 +45,7 @@ export default function SignUpPage() {
       setTimeout(() => {
         router.push('/auth/signin');
       }, 2000);
-    } catch (error) {
+    } catch {
       setError('Ocurrió un error al crear la cuenta');
     } finally {
       setIsLoading(false);
@@ -131,8 +133,8 @@ export default function SignUpPage() {
               <input
                 id="name"
                 type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="Tu nombre completo"
                 required
               />
@@ -143,8 +145,8 @@ export default function SignUpPage() {
               <input
                 id="email"
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="tu@email.com"
                 required
               />
@@ -155,8 +157,8 @@ export default function SignUpPage() {
               <input
                 id="password"
                 type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={formData.password}
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 placeholder="Mínimo 6 caracteres"
                 required
               />

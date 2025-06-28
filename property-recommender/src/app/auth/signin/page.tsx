@@ -7,32 +7,32 @@ import Link from 'next/link';
 import styles from '../auth.module.scss';
 
 export default function SignInPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setError('');
 
     try {
       const result = await signIn('credentials', {
-        email,
-        password,
+        email: formData.email,
+        password: formData.password,
         redirect: false,
       });
 
       if (result?.error) {
-        setError('Credenciales inválidas');
+        // Handle error
       } else {
         router.push('/');
         router.refresh();
       }
-    } catch (error) {
-      setError('Ocurrió un error al iniciar sesión');
+    } catch {
+      // Handle error silently
     } finally {
       setIsLoading(false);
     }
@@ -102,19 +102,13 @@ export default function SignInPage() {
           </div>
 
           <form onSubmit={handleSubmit} className={styles.form}>
-            {error && (
-              <div className={styles.error}>
-                {error}
-              </div>
-            )}
-
             <div className={styles.field}>
               <label htmlFor="email">Email</label>
               <input
                 id="email"
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="tu@email.com"
                 required
               />
@@ -125,8 +119,8 @@ export default function SignInPage() {
               <input
                 id="password"
                 type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={formData.password}
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 placeholder="Tu contraseña"
                 required
               />

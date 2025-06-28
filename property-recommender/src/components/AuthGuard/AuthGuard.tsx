@@ -2,7 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import { useRouter, usePathname } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 
 interface AuthGuardProps {
   children: React.ReactNode;
@@ -14,16 +14,16 @@ export default function AuthGuard({ children }: AuthGuardProps) {
   const pathname = usePathname();
 
   // Rutas que no requieren autenticación
-  const publicRoutes = ['/auth/signin', '/auth/signup'];
+  const publicRoutes = useMemo(() => ['/auth/signin', '/auth/signup'], []);
 
   useEffect(() => {
     if (status === 'loading') return; // Esperar a que se cargue la sesión
 
     // Si no hay sesión y no estamos en una ruta pública, redirigir al login
-    if (!session && !publicRoutes.includes(pathname)) {
+    if (session === null && !publicRoutes.includes(pathname)) {
       router.push('/auth/signin');
     }
-  }, [session, status, router, pathname]);
+  }, [session, status, router, pathname, publicRoutes]);
 
   // Mostrar loading mientras se verifica la autenticación
   if (status === 'loading') {

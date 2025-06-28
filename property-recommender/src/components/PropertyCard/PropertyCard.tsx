@@ -3,6 +3,7 @@
  */
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { PropertyCardProps } from '../../types/types';
 import { formatPrice, getPropertyTypeLabel } from '../../utils';
 import styles from './PropertyCard.module.scss';
@@ -54,12 +55,14 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
       {/* Imagen de la propiedad */}
       <div className={styles.imageContainer}>
         {!imageError ? (
-          <img 
+          <Image 
             src={property.imagen} 
             alt={property.titulo}
+            width={400}
+            height={300}
             className={styles.image}
-            loading="lazy"
             onError={handleImageError}
+            unoptimized
           />
         ) : (
           <div 

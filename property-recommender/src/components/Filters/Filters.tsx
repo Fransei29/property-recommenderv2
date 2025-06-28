@@ -3,9 +3,18 @@
  */
 
 import React, { useState, useCallback } from 'react';
-import { FiltersProps, PropertyType } from '../../types/types';
+import { PropertyFilters } from '../../types/types';
 import { formatPrice } from '../../utils';
 import styles from './Filters.module.scss';
+
+interface FiltersProps {
+  filters: PropertyFilters;
+  onFiltersChange: (filters: PropertyFilters) => void;
+  onClearFilters?: () => void;
+  ciudades: string[];
+  tiposPropiedad: string[];
+  className?: string;
+}
 
 export const Filters: React.FC<FiltersProps> = ({
   filters,
@@ -17,12 +26,12 @@ export const Filters: React.FC<FiltersProps> = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleFilterChange = useCallback((key: keyof typeof filters, value: any) => {
+  const handleInputChange = (field: keyof PropertyFilters, value: string | number | undefined) => {
     onFiltersChange({
       ...filters,
-      [key]: value
+      [field]: value
     });
-  }, [filters, onFiltersChange]);
+  };
 
   const handleClearFilters = useCallback(() => {
     if (onClearFilters) {
@@ -71,7 +80,7 @@ export const Filters: React.FC<FiltersProps> = ({
           <select
             id="ciudad-filter"
             value={filters.ciudad || ''}
-            onChange={(e) => handleFilterChange('ciudad', e.target.value || undefined)}
+            onChange={(e) => handleInputChange('ciudad', e.target.value || undefined)}
             className={styles.select}
           >
             <option value="">Todas las ciudades</option>
@@ -91,7 +100,7 @@ export const Filters: React.FC<FiltersProps> = ({
           <select
             id="tipo-filter"
             value={filters.tipo || ''}
-            onChange={(e) => handleFilterChange('tipo', e.target.value || undefined)}
+            onChange={(e) => handleInputChange('tipo', e.target.value || undefined)}
             className={styles.select}
           >
             <option value="">Todos los tipos</option>
@@ -118,7 +127,7 @@ export const Filters: React.FC<FiltersProps> = ({
                 type="number"
                 placeholder="0"
                 value={filters.precioMin || ''}
-                onChange={(e) => handleFilterChange('precioMin', e.target.value ? Number(e.target.value) : undefined)}
+                onChange={(e) => handleInputChange('precioMin', e.target.value ? Number(e.target.value) : undefined)}
                 className={styles.priceField}
                 min="0"
               />
@@ -133,7 +142,7 @@ export const Filters: React.FC<FiltersProps> = ({
                 type="number"
                 placeholder="Sin límite"
                 value={filters.precioMax || ''}
-                onChange={(e) => handleFilterChange('precioMax', e.target.value ? Number(e.target.value) : undefined)}
+                onChange={(e) => handleInputChange('precioMax', e.target.value ? Number(e.target.value) : undefined)}
                 className={styles.priceField}
                 min="0"
               />
@@ -162,7 +171,7 @@ export const Filters: React.FC<FiltersProps> = ({
                 <span className={styles.activeFilter}>
                   Ciudad: {filters.ciudad}
                   <button
-                    onClick={() => handleFilterChange('ciudad', undefined)}
+                    onClick={() => handleInputChange('ciudad', undefined)}
                     className={styles.removeFilter}
                     aria-label={`Remover filtro de ciudad: ${filters.ciudad}`}
                   >
@@ -174,7 +183,7 @@ export const Filters: React.FC<FiltersProps> = ({
                 <span className={styles.activeFilter}>
                   Tipo: {filters.tipo}
                   <button
-                    onClick={() => handleFilterChange('tipo', undefined)}
+                    onClick={() => handleInputChange('tipo', undefined)}
                     className={styles.removeFilter}
                     aria-label={`Remover filtro de tipo: ${filters.tipo}`}
                   >
@@ -187,8 +196,8 @@ export const Filters: React.FC<FiltersProps> = ({
                   Precio: {filters.precioMin ? formatPrice(filters.precioMin) : '0'} - {filters.precioMax ? formatPrice(filters.precioMax) : 'Sin límite'}
                   <button
                     onClick={() => {
-                      handleFilterChange('precioMin', undefined);
-                      handleFilterChange('precioMax', undefined);
+                      handleInputChange('precioMin', undefined);
+                      handleInputChange('precioMax', undefined);
                     }}
                     className={styles.removeFilter}
                     aria-label="Remover filtro de precio"
