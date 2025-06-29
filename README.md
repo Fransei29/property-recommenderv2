@@ -27,8 +27,6 @@ Ideal para inmobiliarias, startups de real estate o como base para productos de 
 - **Testing** con Jest y React Testing Library
 
 ## 📁 Estructura del Proyecto
-<details>
-<summary>📁 Ver estructura del proyecto</summary>
 
 
 ```text
@@ -94,7 +92,7 @@ property-recommender/
 ├── 📄 README.md          # Documentación del proyecto
 └── 📄 tsconfig.json      # Configuración TypeScript
 ```
-</details>
+
 
 ## 🛠️ Instalación
 
