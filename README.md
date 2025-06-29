@@ -28,6 +28,7 @@ Ideal para inmobiliarias, startups de real estate o como base para productos de 
 
 ## 📁 Estructura del Proyecto
 
+```text
 property-recommender/
 ├── 📁 src/ 
 │ ├── 📁 app/ 
@@ -89,7 +90,7 @@ property-recommender/
 ├── 📄 package-lock.json  # Lock de dependencias
 ├── 📄 README.md          # Documentación del proyecto
 └── 📄 tsconfig.json      # Configuración TypeScript
-
+```
 
 ## 🛠️ Instalación
 
