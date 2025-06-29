@@ -1,6 +1,9 @@
 # Sistema de Recomendación de Propiedades
 
-Un sistema completo y profesional de recomendación de propiedades desarrollado con Next.js 15, TypeScript y SCSS modular.
+Sistema completo de recomendación de propiedades, construido con tecnologías modernas como Next.js 15, TypeScript y SCSS modular.
+Diseñado con foco en rendimiento, arquitectura escalable y excelente experiencia de usuario.
+Ideal para inmobiliarias, startups de real estate o como base para productos de recomendación personalizados.
+
 
 ## 🚀 Características
 
@@ -15,57 +18,78 @@ Un sistema completo y profesional de recomendación de propiedades desarrollado 
 
 ### Características Técnicas
 - **Next.js 15** con App Router
+- - Autenticación integrada con NextAuth
 - **TypeScript** para tipado completo
 - **SCSS modular** sin dependencias de CSS-in-JS
 - **Arquitectura modular** y escalable
 - **Hooks personalizados** para lógica reutilizable
 - **Componentes reutilizables** y bien tipados
-- **Testing automatizado** con Jest y React Testing Library
+- **Testing** con Jest y React Testing Library
 
 ## 📁 Estructura del Proyecto
 
-```
 property-recommender/
-├── src/
-│   ├── app/                    # App Router de Next.js
-│   │   ├── layout.tsx         # Layout principal
-│   │   ├── page.tsx           # Página principal
-│   │   └── globals.scss       # Estilos globales
-│   ├── components/            # Componentes reutilizables
-│   │   ├── PropertyCard/      # Tarjeta de propiedad
-│   │   │   ├── PropertyCard.tsx
-│   │   │   ├── PropertyCard.module.scss
-│   │   │   └── PropertyCard.test.tsx
-│   │   ├── SearchBar/         # Barra de búsqueda
-│   │   ├── Filters/           # Filtros de propiedades
-│   │   ├── RecommendationList/# Lista de recomendaciones
-│   │   ├── Pagination/        # Componente de paginación
-│   │   ├── Navbar/            # Barra de navegación
-│   │   ├── Footer/            # Pie de página
-│   │   ├── PropertyDetail/    # Detalle de propiedad
-│   │   ├── LayoutWrapper/     # Wrapper de layout
-│   │   ├── Providers/         # Proveedores de contexto
-│   │   └── AuthGuard/         # Guardia de autenticación
-│   ├── hooks/                 # Hooks personalizados
-│   │   ├── useFavorites.ts    # Gestión de favoritos
-│   │   └── useRecommendations.ts # Lógica de recomendaciones
-│   ├── utils/                 # Utilidades
-│   │   └── compare.ts         # Funciones de comparación y filtrado
-│   ├── types/                 # Tipos TypeScript
-│   │   └── types.ts           # Definiciones de tipos
-│   ├── data/                  # Datos
-│   │   ├── properties.json    # Propiedades de ejemplo
-│   │   └── loadProperties.ts  # Cargador de datos
-│   ├── lib/                   # Librerías y configuraciones
-│   └── styles/                # Estilos adicionales
-├── public/                    # Archivos estáticos
-├── jest.config.js            # Configuración de Jest
-├── jest.setup.js             # Setup de testing
-├── next.config.ts            # Configuración de Next.js
-├── tsconfig.json             # Configuración de TypeScript
-├── package.json              # Dependencias y scripts
-└── README.md                 # Documentación
-```
+├── 📁 src/ 
+│ ├── 📁 app/ 
+│ │ ├── 📁 api/ 
+│ │ │ └── 📁 auth/ 
+│ │ │ └── 📁 [...nextauth]/ # Configuración NextAuth
+│ │ ├── 📁 auth/            # Páginas de autenticación
+│ │ ├── 📄 layout.tsx       # Layout principal
+│ │ ├── 📄 page.tsx         # Página principal
+│ │ └── 📄 page.module.scss # Estilos de la página principal
+│ │
+│ ├── 📁 components/  
+│ │ ├── 📁 AuthGuard/          # Componente de protección de rutas
+│ │ ├── 📁 Filters/            # Sistema de filtros avanzado
+│ │ ├── 📁 Footer/             # Pie de página
+│ │ ├── 📁 LayoutWrapper/      # Wrapper de layout
+│ │ ├── 📁 Navbar/             # Barra de navegación
+│ │ ├── 📁 Pagination/         # Sistema de paginación
+│ │ ├── 📁 PropertyCard/       # Tarjeta individual de propiedad
+│ │ ├── 📁 PropertyDetail/     # Vista detallada de propiedad
+│ │ ├── 📁 Providers/          # Proveedores de contexto
+│ │ ├── 📁 RecommendationList/ # Lista de recomendaciones
+│ │ └── 📁 SearchBar/          # Barra de búsqueda
+│ │
+│ ├── 📁 data/                # Datos y carga de información
+│ │ ├── 📄 loadProperties.ts  # Cargador de propiedades
+│ │ └── 📄 properties.json    # Datos de propiedades
+│ │
+│ ├── 📁 hooks/                  # Hooks personalizados
+│ │ ├── 📄 useFavorites.ts       # Gestión de favoritos
+│ │ └── 📄 useRecommendations.ts # Lógica de recomendaciones
+│ │
+│ ├── 📁 lib/              # Configuraciones y utilidades
+│ │ └── 📄 auth.ts         # Configuración de autenticación
+│ │
+│ ├── 📁 styles/ 
+│ │ └── 📄 globals.scss    # Variables CSS y estilos base
+│ │
+│ ├── 📁 types/             # Definiciones TypeScript
+│ │ ├── 📄 next-auth.d.ts   # Tipos de NextAuth
+│ │ └── 📄 types.ts         # Tipos principales de la aplicación
+│ │
+│ └── 📁 utils/             # Utilidades y algoritmos
+│ ├── 📄 filterUtils.ts     # Lógica de filtrado
+│ ├── 📄 formatUtils.ts     # Formateo de datos
+│ ├── 📄 index.ts           # Exportaciones centralizadas
+│ ├── 📄 searchUtils.ts     # Búsqueda semántica
+│ └── �� similarityUtils.ts # Algoritmo de recomendaciones
+│
+├── 📁 public/ # Archivos estáticos
+│
+├── 📄 .gitignore         # Archivos ignorados por Git
+├── 📄 eslint.config.mjs  # Configuración ESLint
+├── 📄 jest.config.js     # Configuración de pruebas
+├── 📄 jest.setup.js      # Setup de pruebas
+├── 📄 next.config.ts     # Configuración Next.js
+├── 📄 next-env.d.ts      # Tipos de Next.js
+├── 📄 package.json       # Dependencias y scripts
+├── 📄 package-lock.json  # Lock de dependencias
+├── 📄 README.md          # Documentación del proyecto
+└── 📄 tsconfig.json      # Configuración TypeScript
+
 
 ## 🛠️ Instalación
 
@@ -103,29 +127,6 @@ npm run test:watch       # Modo watch para desarrollo
 - **React Testing Library** para testing de componentes
 - **jsdom** como entorno de testing
 - **TypeScript** soporte completo
-
-### Ejemplo de Test
-```typescript
-// PropertyCard.test.tsx
-describe('PropertyCard', () => {
-  it('should display the property title', () => {
-    render(<PropertyCard {...defaultProps} />);
-    expect(screen.getByText('Hermosa casa en el centro')).toBeInTheDocument();
-  });
-
-  it('should display the property city', () => {
-    render(<PropertyCard {...defaultProps} />);
-    expect(screen.getByText('Madrid')).toBeInTheDocument();
-  });
-
-  it('should display the property image with correct alt attribute', () => {
-    render(<PropertyCard {...defaultProps} />);
-    const image = screen.getByAltText('Hermosa casa en el centro');
-    expect(image).toBeInTheDocument();
-    expect(image).toHaveAttribute('src', 'https://example.com/casa.jpg');
-  });
-});
-```
 
 ## 🎯 Uso
 
@@ -186,10 +187,10 @@ describe('PropertyCard', () => {
 ## 🎨 Diseño y UX
 
 ### Principios de Diseño
-- **Simplicidad**: Interfaz limpia y fácil de usar
-- **Consistencia**: Componentes reutilizables con estilos coherentes
-- **Accesibilidad**: Navegación por teclado y ARIA labels
-- **Responsive**: Funciona perfectamente en móvil, tablet y desktop
+- **Simplicidad**:    Interfaz limpia y fácil de usar
+- **Consistencia**:   Componentes reutilizables con estilos coherentes
+- **Accesibilidad**:  Navegación por teclado y ARIA labels
+- **Responsive**:     Funciona perfectamente en móvil, tablet y desktop
 
 ### Sistema de Colores
 - **Primario**: Azul (#2563eb)
@@ -207,13 +208,8 @@ describe('PropertyCard', () => {
 
 ### Variables de Entorno
 ```env
-# No se requieren variables de entorno para el funcionamiento básico
+# Se requiere la de Next Secret para authenticacion.
 ```
-
-### Personalización
-- **Colores**: Modifica las variables CSS en `src/app/globals.scss`
-- **Datos**: Reemplaza `src/data/properties.json` con tus propios datos
-- **Componentes**: Personaliza los componentes en `src/components/`
 
 ## 📊 Rendimiento
 
@@ -225,16 +221,11 @@ describe('PropertyCard', () => {
 - **Componentes optimizados** con React.memo
 - **Testing automatizado** para prevenir regresiones
 
-### Métricas Objetivo
-- **First Contentful Paint**: < 1.5s
-- **Largest Contentful Paint**: < 2.5s
-- **Cumulative Layout Shift**: < 0.1
-
 ## 🚀 Despliegue
 
-### Vercel (Recomendado)
-1. Conecta tu repositorio a Vercel
-2. Configura las variables de entorno si es necesario
+### Vercel
+1. Conectando el tu repositorio a Vercel atraves de GitHub
+2. Configura las variables de entorno
 3. Despliega automáticamente
 
 ### Otros Proveedores
@@ -264,15 +255,6 @@ describe('PropertyCard', () => {
 - [ ] **Optimización** de imágenes avanzada
 - [ ] **Caching** inteligente
 
-## 🤝 Contribución
-
-### Guías de Contribución
-1. **Fork** el repositorio
-2. **Crea** una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. **Commit** tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. **Push** a la rama (`git push origin feature/AmazingFeature`)
-5. **Abre** un Pull Request
-
 ### Estándares de Código
 - **TypeScript**: Tipado estricto obligatorio
 - **ESLint**: Configuración estándar de Next.js
@@ -280,23 +262,12 @@ describe('PropertyCard', () => {
 - **Commits**: Mensajes descriptivos en español
 - **Testing**: Cobertura mínima del 80%
 
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
 ## 👨‍💻 Autor
 
-**Franco**
+**Franco Seiler**
+Full Stack Developer
+
+www.francoseiler.com
+
 - GitHub: [@Fransei29](https://github.com/Fransei29)
 
-## 🙏 Agradecimientos
-
-- **Next.js** por el framework increíble
-- **Vercel** por la plataforma de despliegue
-- **React Testing Library** por las herramientas de testing
-- **Comunidad** de desarrolladores por el apoyo
-
----
-
-**Estado del Proyecto**: ✅ Completado con testing implementado
-**Última actualización**: Junio 2024
