@@ -4,7 +4,7 @@
 
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
 import { Property } from '../types/types';
 import { useFavorites } from '../hooks/useFavorites';
@@ -47,14 +47,20 @@ export default function HomePage() {
     loadProperties();
   }, []);
 
+  // Memoizar las propiedades para evitar recreaciones
+  const memoizedProperties = useMemo(() => properties, [properties]);
+
+  // Memoizar la función de limpiar búsqueda
+  const handleClearSearch = useCallback(() => {
+    setSearchQuery('');
+  }, []);
+
   // Hooks personalizados
   const favorites = useFavorites();
-  const recommendations = useRecommendations(properties, () => setSearchQuery(''));
+  const recommendations = useRecommendations(memoizedProperties, handleClearSearch);
 
-  // Debug: Verificar que las propiedades se pasan correctamente
-  useEffect(() => {
-    console.log('Properties loaded:', properties.length);
-  }, [properties]);
+  // Extraer funciones para evitar dependencias circulares
+  const { updateFilters } = recommendations;
 
   // Obtener propiedades paginadas
   const paginatedProperties = useMemo(() => {
@@ -66,12 +72,12 @@ export default function HomePage() {
 
   const totalPages = useMemo(() => {
     return Math.ceil(recommendations.filteredProperties.length / ITEMS_PER_PAGE);
-  }, [recommendations.filteredProperties.length]);
+  }, [recommendations.filteredProperties]);
 
   // Actualizar filtros cuando cambie la búsqueda
   useEffect(() => {
-    recommendations.updateFilters({ searchQuery });
-  }, [searchQuery, recommendations]);
+    updateFilters({ searchQuery });
+  }, [searchQuery, updateFilters]);
 
   // Resetear página cuando cambien los filtros
   useEffect(() => {

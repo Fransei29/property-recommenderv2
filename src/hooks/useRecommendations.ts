@@ -19,11 +19,7 @@ export function useRecommendations(allProperties: Property[], onClearSearch?: ()
 
   // Propiedades filtradas
   const filteredProperties = useMemo(() => {
-    console.log('Filtering properties:', allProperties.length);
-    console.log('Current filters:', filters);
-    const filtered = filterProperties(allProperties, filters);
-    console.log('Filtered result:', filtered.length);
-    return filtered;
+    return filterProperties(allProperties, filters);
   }, [allProperties, filters]);
 
   // Generar recomendaciones cuando se seleccione una propiedad
@@ -88,7 +84,7 @@ export function useRecommendations(allProperties: Property[], onClearSearch?: ()
       maxPrice,
       avgPrice: Math.round(avgPrice)
     };
-  }, [allProperties.length, filteredProperties]);
+  }, [allProperties, filteredProperties]);
 
   /**
    * Obtener ciudades únicas de las propiedades
@@ -115,7 +111,8 @@ export function useRecommendations(allProperties: Property[], onClearSearch?: ()
     );
   }, [filters]);
 
-  return {
+  // Memoizar el objeto de retorno para evitar recreaciones innecesarias
+  const result = useMemo(() => ({
     // Estado
     selectedProperty,
     recommendations,
@@ -133,5 +130,20 @@ export function useRecommendations(allProperties: Property[], onClearSearch?: ()
     getUniqueCities,
     getUniqueTypes,
     hasActiveFilters
-  };
+  }), [
+    selectedProperty,
+    recommendations,
+    filteredProperties,
+    filters,
+    selectProperty,
+    clearSelection,
+    updateFilters,
+    clearFilters,
+    getFilterStats,
+    getUniqueCities,
+    getUniqueTypes,
+    hasActiveFilters
+  ]);
+
+  return result;
 } 

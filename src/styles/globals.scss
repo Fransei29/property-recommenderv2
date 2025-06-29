@@ -71,6 +71,7 @@
   // Variables para componentes (mapeo de las existentes)
   --color-primary: var(--primary-color);
   --color-primary-dark: var(--primary-hover);
+  --color-primary-light: #dbeafe;
   --color-accent: var(--accent-color);
   --color-text: var(--text-primary);
   --color-text-muted: var(--text-muted);
@@ -81,6 +82,9 @@
   --color-border: var(--border-color);
   --color-border-light: var(--bg-tertiary);
   --border-radius: var(--radius-md);
+  --shadow-large: var(--shadow-xl);
+  --color-success: var(--success-color);
+  --color-success-light: #d1fae5;
 }
 
 // Reset y estilos base

@@ -46,6 +46,7 @@ export const PropertyDetail: React.FC<PropertyDetailProps> = ({
             width={800}
             height={600}
             className={styles.mainImage}
+            priority
             unoptimized
           />
           <button
@@ -147,6 +148,18 @@ export const PropertyDetail: React.FC<PropertyDetailProps> = ({
                   <div className={styles.similarityScore}>
                     <span>{Math.round(recommendation.similarityScore * 100)}% similar</span>
                   </div>
+                  {recommendation.reasons.length > 0 && (
+                    <div className={styles.reasons}>
+                      <span className={styles.reasonsLabel}>Razones:</span>
+                      <ul className={styles.reasonsList}>
+                        {recommendation.reasons.map((reason, reasonIndex) => (
+                          <li key={reasonIndex} className={styles.reason}>
+                            {reason}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

@@ -61,6 +61,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
             width={400}
             height={300}
             className={styles.image}
+            priority
             onError={handleImageError}
             unoptimized
           />
