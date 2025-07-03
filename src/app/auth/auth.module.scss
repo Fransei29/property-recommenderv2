@@ -11,12 +11,16 @@
 // Lado izquierdo - Imagen de marca
 .brandSection {
   flex: 1;
-  background: url('/banner.jpg') center center/cover no-repeat;
+  background: url('/home.jpg');
+  background-size: 130% auto; // Zoom horizontal
+  background-position: 60% 0%; // Moverla más abajo
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
   overflow: hidden;
+  padding-left: 4rem;
 
   &::before {
     content: '';
@@ -25,8 +29,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(4, 10, 24, 0.8) 0%, rgba(91, 107, 156, 0.1) 100%);
-    opacity: 0.9;
+    background: linear-gradient(135deg, rgba(2, 2, 2, 0.8) 10%, rgba(253, 253, 253, 0.1) 100%);
   }
 
   @media (max-width: 768px) {
@@ -36,9 +39,9 @@
 
 .brandContent {
   text-align: left;
-  color: white;
+  color: rgb(233, 233, 233);
   z-index: 1;
-  max-width: 800px;
+  max-width: 700px;
   padding: 2rem;
 
   .brandLogo {
@@ -51,8 +54,8 @@
     font-weight: 700;
 
     svg {
-      width: 64px;
-      height: 64px;
+      width: 60px;
+      height: 60px;
       color: var(--color-primary);
     }
   }
@@ -62,7 +65,7 @@
     font-weight: 600;
     margin-bottom: 1rem;
     line-height: 1.2;
-    color: rgb(235, 235, 235);
+    color: rgb(226, 226, 226);
   }
 
   p {
@@ -89,7 +92,7 @@
       svg {
         width: 20px;
         height: 20px;
-        color: #fbbf24;
+        color: #f7b103;
         flex-shrink: 0;
       }
     }
@@ -147,7 +150,7 @@
   }
 
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: #1f2937;
     margin-bottom: 0.25rem;

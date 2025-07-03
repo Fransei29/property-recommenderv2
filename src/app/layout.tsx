@@ -9,6 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Habita - Sistema de Recomendación de Propiedades",
   description: "Encuentra tu próxima propiedad con nuestro sistema inteligente de recomendaciones",
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
 };
 
 export default function RootLayout({

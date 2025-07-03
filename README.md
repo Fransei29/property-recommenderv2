@@ -10,20 +10,24 @@ Ideal para inmobiliarias, startups de real estate o como base para productos de 
 ### Funcionalidades Principales
 - **Listado de propiedades** con 100 propiedades de ejemplo
 - **Sistema de recomendaciones** basado en similitud (ciudad, tipo, precio ±20%)
-- **Favoritos** guardados en localStorage
+- **Sistema de autenticación completo** con NextAuth.js
+- **Página de perfil** para gestionar favoritos
+- **Favoritos persistentes** guardados en base de datos
 - **Búsqueda y filtros** por ciudad, tipo y rango de precios
 - **Paginación** del lado del cliente
 - **Diseño responsive** y moderno
+- **Optimización de imágenes** con Next.js Image
 - **Testing completo** con React Testing Library y Jest
 
 ### Características Técnicas
 - **Next.js 15** con App Router
-- - Autenticación integrada con NextAuth
+- **Autenticación integrada** con NextAuth.js
 - **TypeScript** para tipado completo
 - **SCSS modular** sin dependencias de CSS-in-JS
 - **Arquitectura modular** y escalable
 - **Hooks personalizados** para lógica reutilizable
 - **Componentes reutilizables** y bien tipados
+- **Optimización de rendimiento** con Next.js Image
 - **Testing** con Jest y React Testing Library
 
 ## 📁 Estructura del Proyecto
@@ -37,12 +41,14 @@ property-recommender/
 │ │ │ └── 📁 auth/ 
 │ │ │ └── 📁 [...nextauth]/ # Configuración NextAuth
 │ │ ├── 📁 auth/            # Páginas de autenticación
+│ │ ├── 📁 profile/         # Página de perfil del usuario
 │ │ ├── 📄 layout.tsx       # Layout principal
 │ │ ├── 📄 page.tsx         # Página principal
 │ │ └── 📄 page.module.scss # Estilos de la página principal
 │ │
 │ ├── 📁 components/  
 │ │ ├── 📁 AuthGuard/          # Componente de protección de rutas
+│ │ ├── 📁 FavoritesList/      # Lista de propiedades favoritas
 │ │ ├── 📁 Filters/            # Sistema de filtros avanzado
 │ │ ├── 📁 Footer/             # Pie de página
 │ │ ├── 📁 LayoutWrapper/      # Wrapper de layout
@@ -77,7 +83,7 @@ property-recommender/
 │ ├── 📄 formatUtils.ts     # Formateo de datos
 │ ├── 📄 index.ts           # Exportaciones centralizadas
 │ ├── 📄 searchUtils.ts     # Búsqueda semántica
-│ └── �� similarityUtils.ts # Algoritmo de recomendaciones
+│ └── similarityUtils.ts # Algoritmo de recomendaciones
 │
 ├── 📁 public/ # Archivos estáticos
 │
@@ -107,12 +113,19 @@ property-recommender/
    npm install
    ```
 
-3. **Ejecutar en desarrollo**
+3. **Configurar variables de entorno**
+   ```bash
+   # Crear archivo .env.local
+   NEXTAUTH_SECRET=tu_secret_aqui
+   NEXTAUTH_URL=http://localhost:3000
+   ```
+
+4. **Ejecutar en desarrollo**
    ```bash
    npm run dev
    ```
 
-4. **Abrir en el navegador**
+5. **Abrir en el navegador**
    ```
    http://localhost:3000
    ```
@@ -135,22 +148,35 @@ npm run test:watch       # Modo watch para desarrollo
 
 ### Funcionalidades Principales
 
-1. **Explorar Propiedades**
+1. **Autenticación de Usuarios**
+   - Sistema de login/logout integrado
+   - Protección de rutas con AuthGuard
+   - Sesiones persistentes
+   - Página de perfil personalizada
+
+2. **Explorar Propiedades**
    - Navega por las 100 propiedades disponibles
    - Usa la paginación para ver más propiedades
    - Haz clic en una propiedad para ver recomendaciones
 
-2. **Sistema de Favoritos**
+3. **Sistema de Favoritos Avanzado**
    - Haz clic en el corazón para agregar/remover favoritos
-   - Los favoritos se guardan automáticamente en localStorage
-   - Ve el contador de favoritos en la barra lateral
+   - Los favoritos se guardan en la base de datos del usuario
+   - Accede a tus favoritos desde el perfil
+   - Contador de favoritos en tiempo real
 
-3. **Búsqueda y Filtros**
+4. **Página de Perfil**
+   - Vista dedicada para gestionar favoritos
+   - Información del usuario autenticado
+   - Navegación fácil entre favoritos
+   - Diseño responsive y moderno
+
+5. **Búsqueda y Filtros**
    - Usa la barra de búsqueda para buscar por título, ciudad o tipo
    - Aplica filtros por ciudad, tipo de propiedad y rango de precios
    - Limpia los filtros con el botón "Limpiar filtros"
 
-4. **Recomendaciones Inteligentes**
+6. **Recomendaciones Inteligentes**
    - Selecciona una propiedad para ver recomendaciones similares
    - Las recomendaciones se basan en ciudad, tipo y precio similar
    - Ve las razones de similitud para cada recomendación
@@ -162,7 +188,21 @@ npm run test:watch       # Modo watch para desarrollo
 - Manejo de errores de imagen con fallback
 - Botón de favoritos integrado
 - Indicador de selección para recomendaciones
+- **Optimización**: Imágenes optimizadas con Next.js Image
 - **Testing**: Verifica título, ciudad e imagen
+
+#### Navbar
+- Barra de navegación responsive
+- Menú de usuario con avatar
+- Acceso rápido a perfil y logout
+- Contador de favoritos en tiempo real
+- **Optimización**: Avatar optimizado con Next.js Image
+
+#### FavoritesList
+- Lista dedicada de propiedades favoritas
+- Gestión completa de favoritos
+- Diseño consistente con PropertyCard
+- Navegación fácil entre favoritos
 
 #### SearchBar
 - Búsqueda en tiempo real con debounce
@@ -211,18 +251,22 @@ npm run test:watch       # Modo watch para desarrollo
 
 ### Variables de Entorno
 ```env
-# Se requiere la de Next Secret para authenticacion.
+# NextAuth Configuration
+NEXTAUTH_SECRET=tu_secret_aqui
+NEXTAUTH_URL=http://localhost:3000
 ```
 
 ## 📊 Rendimiento
 
 ### Optimizaciones Implementadas
 - **Lazy loading** de imágenes
+- **Next.js Image** para optimización automática
 - **Memoización** de cálculos costosos
 - **Debounce** en búsquedas
 - **Paginación** para listas grandes
 - **Componentes optimizados** con React.memo
 - **Testing automatizado** para prevenir regresiones
+- **Autenticación eficiente** con NextAuth.js
 
 ## 🚀 Despliegue
 
@@ -239,9 +283,11 @@ npm run test:watch       # Modo watch para desarrollo
 ## 🔮 Mejoras Futuras
 
 ### Funcionalidades Planificadas
+- [x] **Sistema de autenticación** con NextAuth.js
+- [x] **Página de perfil** para gestión de favoritos
+- [x] **Optimización de imágenes** con Next.js Image
 - [ ] **Base de datos real** (PostgreSQL/MongoDB)
 - [ ] **API REST** para datos dinámicos
-- [ ] **Autenticación** de usuarios
 - [ ] **Mapas interactivos** con ubicaciones
 - [ ] **Modo oscuro** toggle
 - [ ] **Internacionalización** (i18n)
@@ -252,10 +298,11 @@ npm run test:watch       # Modo watch para desarrollo
 
 ### Mejoras Técnicas
 - [x] **Testing completo** con Jest y Testing Library
+- [x] **Autenticación** integrada
+- [x] **Optimización de imágenes** avanzada
 - [ ] **Storybook** para documentación de componentes
 - [ ] **CI/CD** automatizado
 - [ ] **Monitoreo** de errores (Sentry)
-- [ ] **Optimización** de imágenes avanzada
 - [ ] **Caching** inteligente
 
 ### Estándares de Código
