@@ -30,15 +30,6 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
     setImageError(true);
   };
 
-  // Generar un color de fondo basado en el ID de la propiedad
-  const getBackgroundColor = () => {
-    const colors = [
-      '#e3f2fd', '#f3e5f5', '#e8f5e8', '#fff3e0', 
-      '#fce4ec', '#f1f8e9', '#e0f2f1', '#fafafa'
-    ];
-    return colors[property.id % colors.length];
-  };
-
   return (
     <div 
       className={`${styles.card} ${className}`}
@@ -66,10 +57,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
             unoptimized
           />
         ) : (
-          <div 
-            className={styles.imageFallback}
-            style={{ backgroundColor: getBackgroundColor() }}
-          >
+          <div className={styles.imageFallback}>
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
               <polyline points="9,22 9,12 15,12 15,22"/>

@@ -5,6 +5,8 @@
 
 import React, { useState } from 'react';
 import { useSession, signOut } from 'next-auth/react';
+import Link from 'next/link';
+import Image from 'next/image';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -44,33 +46,22 @@ export const Navbar: React.FC<NavbarProps> = ({
     <nav className={`${styles.navbar} ${className}`}>
       <div className={styles.container}>
         {/* Logo */}
-        <div className={styles.logo} onClick={handleLogoClick}>
+        <Link href="/" className={styles.logo} onClick={handleLogoClick}>
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
             <polyline points="9,22 9,12 15,12 15,22"/>
           </svg>
           <span className={styles.logoText}>Habita</span>
-        </div>
+        </Link>
 
         {/* Navegación desktop */}
         <div className={styles.nav}>
-          <a href="#inicio" className={styles.navLink}>
+          <Link href="/" className={styles.navLink}>
             Inicio
-          </a>
-          <a href="#propiedades" className={styles.navLink}>
-            Propiedades
-          </a>
-          <a href="#favoritos" className={styles.navLink}>
-            Favoritos
-            {favoritesCount > 0 && (
-              <span className={styles.favoritesBadge}>
-                {favoritesCount}
-              </span>
-            )}
-          </a>
-          <a href="#contacto" className={styles.navLink}>
+          </Link>
+          <Link href="/contacto" className={styles.navLink}>
             Contacto
-          </a>
+          </Link>
         </div>
 
         {/* Acciones */}
@@ -85,10 +76,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                 aria-label="Menú de usuario"
               >
                 <div className={styles.userAvatar}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                    <circle cx="12" cy="7" r="4"/>
-                  </svg>
+                  <Image 
+                    src="/avatar.avif" 
+                    alt="Avatar del usuario" 
+                    className={styles.avatarImage}
+                    width={32}
+                    height={32}
+                  />
                 </div>
                 <span className={styles.userName}>{session.user.name}</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -102,19 +96,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                     <p className={styles.userEmail}>{session.user.email}</p>
                   </div>
                   <div className={styles.userActions}>
-                    <button className={styles.userAction}>
+                    <Link href="/profile" className={styles.userAction}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                         <circle cx="12" cy="7" r="4"/>
                       </svg>
                       Mi Perfil
-                    </button>
-                    <button className={styles.userAction}>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                      </svg>
-                      Configuración
-                    </button>
+                    </Link>
                     <button 
                       onClick={handleSignOut}
                       className={`${styles.userAction} ${styles.signOutButton}`}
@@ -150,9 +138,9 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Menú móvil */}
       {isMobileMenuOpen && (
         <div className={styles.mobileMenu}>
-          <a href="#inicio" className={styles.mobileNavLink}>
+          <Link href="/" className={styles.mobileNavLink}>
             Inicio
-          </a>
+          </Link>
           <a href="#propiedades" className={styles.mobileNavLink}>
             Propiedades
           </a>
@@ -164,9 +152,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               </span>
             )}
           </a>
-          <a href="#contacto" className={styles.mobileNavLink}>
+          <Link href="/contacto" className={styles.mobileNavLink}>
             Contacto
-          </a>
+          </Link>
           
           {/* Información del usuario en móvil */}
           {session?.user && (
@@ -175,6 +163,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <p className={styles.mobileUserName}>{session.user.name}</p>
                 <p className={styles.mobileUserEmail}>{session.user.email}</p>
               </div>
+              <Link href="/profile" className={styles.mobileNavLink}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                Mi Perfil
+              </Link>
               <button 
                 onClick={handleSignOut}
                 className={styles.mobileSignOutButton}

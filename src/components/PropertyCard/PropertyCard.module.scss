@@ -31,7 +31,7 @@
 .imageContainer {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 160px;
   overflow: hidden;
   background: var(--bg-tertiary);
 }
@@ -183,7 +183,7 @@
 }
 
 .content {
-  padding: var(--spacing-md);
+  padding: var(--spacing-sm);
 }
 
 .header {
@@ -191,7 +191,7 @@
 }
 
 .title {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: var(--spacing-xs);
@@ -212,15 +212,15 @@
 }
 
 .priceAmount {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
   font-weight: 700;
   color: var(--primary-color);
 }
 
 .details {
   display: flex;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-md);
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
   flex-wrap: wrap;
 }
 
@@ -237,10 +237,10 @@
 }
 
 .description {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--text-secondary);
   line-height: 1.5;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -311,42 +311,42 @@
 // Responsive
 @media (max-width: 768px) {
   .imageContainer {
-    height: 180px;
+    height: 140px;
   }
 
   .content {
-    padding: var(--spacing-sm);
+    padding: var(--spacing-xs);
   }
 
   .title {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-sm);
   }
 
   .priceAmount {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
   }
 
   .details {
-    gap: var(--spacing-sm);
+    gap: var(--spacing-xs);
   }
 
   .detail {
-    font-size: var(--font-size-xs);
+    font-size: 10px;
   }
 }
 
 @media (max-width: 480px) {
   .imageContainer {
-    height: 160px;
+    height: 120px;
   }
 
   .favoriteButton {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
 
   .typeBadge {
-    font-size: 10px;
-    padding: 2px var(--spacing-xs);
+    font-size: 9px;
+    padding: 1px var(--spacing-xs);
   }
 } 
