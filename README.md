@@ -28,77 +28,7 @@ Ideal para inmobiliarias, startups de real estate o como base para productos de 
 - **Hooks personalizados** para lógica reutilizable
 - **Componentes reutilizables** y bien tipados
 - **Optimización de rendimiento** con Next.js Image
-- **Testing** con Jest y React Testing Library
-
-## 📁 Estructura del Proyecto
-
-
-```text
-property-recommender/
-├── 📁 src/ 
-│ ├── 📁 app/ 
-│ │ ├── 📁 api/ 
-│ │ │ └── 📁 auth/ 
-│ │ │ └── 📁 [...nextauth]/ # Configuración NextAuth
-│ │ ├── 📁 auth/            # Páginas de autenticación
-│ │ ├── 📁 profile/         # Página de perfil del usuario
-│ │ ├── 📄 layout.tsx       # Layout principal
-│ │ ├── 📄 page.tsx         # Página principal
-│ │ └── 📄 page.module.scss # Estilos de la página principal
-│ │
-│ ├── 📁 components/  
-│ │ ├── 📁 AuthGuard/          # Componente de protección de rutas
-│ │ ├── 📁 FavoritesList/      # Lista de propiedades favoritas
-│ │ ├── 📁 Filters/            # Sistema de filtros avanzado
-│ │ ├── 📁 Footer/             # Pie de página
-│ │ ├── 📁 LayoutWrapper/      # Wrapper de layout
-│ │ ├── 📁 Navbar/             # Barra de navegación
-│ │ ├── 📁 Pagination/         # Sistema de paginación
-│ │ ├── 📁 PropertyCard/       # Tarjeta individual de propiedad
-│ │ ├── 📁 PropertyDetail/     # Vista detallada de propiedad
-│ │ ├── 📁 Providers/          # Proveedores de contexto
-│ │ ├── 📁 RecommendationList/ # Lista de recomendaciones
-│ │ └── 📁 SearchBar/          # Barra de búsqueda
-│ │
-│ ├── 📁 data/                # Datos y carga de información
-│ │ ├── 📄 loadProperties.ts  # Cargador de propiedades
-│ │ └── 📄 properties.json    # Datos de propiedades
-│ │
-│ ├── 📁 hooks/                  # Hooks personalizados
-│ │ ├── 📄 useFavorites.ts       # Gestión de favoritos
-│ │ └── 📄 useRecommendations.ts # Lógica de recomendaciones
-│ │
-│ ├── 📁 lib/              # Configuraciones y utilidades
-│ │ └── 📄 auth.ts         # Configuración de autenticación
-│ │
-│ ├── 📁 styles/ 
-│ │ └── 📄 globals.scss    # Variables CSS y estilos base
-│ │
-│ ├── 📁 types/             # Definiciones TypeScript
-│ │ ├── 📄 next-auth.d.ts   # Tipos de NextAuth
-│ │ └── 📄 types.ts         # Tipos principales de la aplicación
-│ │
-│ └── 📁 utils/             # Utilidades y algoritmos
-│ ├── 📄 filterUtils.ts     # Lógica de filtrado
-│ ├── 📄 formatUtils.ts     # Formateo de datos
-│ ├── 📄 index.ts           # Exportaciones centralizadas
-│ ├── 📄 searchUtils.ts     # Búsqueda semántica
-│ └── similarityUtils.ts # Algoritmo de recomendaciones
-│
-├── 📁 public/ # Archivos estáticos
-│
-├── 📄 .gitignore         # Archivos ignorados por Git
-├── 📄 eslint.config.mjs  # Configuración ESLint
-├── 📄 jest.config.js     # Configuración de pruebas
-├── 📄 jest.setup.js      # Setup de pruebas
-├── 📄 next.config.ts     # Configuración Next.js
-├── 📄 next-env.d.ts      # Tipos de Next.js
-├── 📄 package.json       # Dependencias y scripts
-├── 📄 package-lock.json  # Lock de dependencias
-├── 📄 README.md          # Documentación del proyecto
-└── 📄 tsconfig.json      # Configuración TypeScript
-```
-
+- **Testing** con Jest y React Testing Libraryx
 
 ## 🛠️ Instalación
 
@@ -146,6 +76,88 @@ npm run test:watch       # Modo watch para desarrollo
 
 ## 🎯 Uso
 
+
+## 🔧 Metodología de trabajo para este proyecto
+
+Este proyecto sigue una estructura clara y profesional pensada para facilitar la colaboración, la escalabilidad y futuras versiones con nuevas funcionalidades (como IA, scraping, etc.).  
+A continuación, te comparto los pasos para contribuir correctamente:
+
+
+### 🚀 Crear una nueva funcionalidad
+
+
+# Crear una nueva rama a partir de main
+```bash
+git checkout -b feature/nombre-de-la-funcionalidad
+```
+
+# Agregar los cambios realizados
+```bash
+git add .
+```
+
+# Hacer commit con un mensaje claro
+```bash
+git commit -m "feat: agrega nueva funcionalidad"
+```
+
+# Actualizar tu rama con los últimos cambios de main
+```bash
+git pull origin main
+```
+
+# Subir tu rama al repositorio remoto
+```bash
+git push origin feature/nombre-de-la-funcionalidad
+```
+
+# Crear un Pull Request
+Una vez subida tu rama, abrí un Pull Request en el repositorio de GitHub para que podamos revisar, testear y fusionar los cambios al entorno principal (main).
+
+
+## 📁 Estructura propuesta y sugerida para la creacion del backend (Python / FastAPI)
+
+```plaintext
+backend/
+├── app/
+│   ├── api/                   # Endpoints REST (routers)
+│   │   ├── auth.py            # Autenticación y autorización
+│   │   ├── properties.py      # CRUD propiedades
+│   │   ├── favorites.py       # Gestión favoritos
+│   │   └── users.py           # Gestión usuarios y roles
+│   │
+│   ├── core/                  # Configuraciones centrales
+│   │   ├── config.py          # Variables de entorno y settings
+│   │   └── security.py        # Funciones de seguridad (JWT, hashing)
+│   │
+│   ├── db/                    # Conexión y modelos ORM
+│   │   ├── base.py            # Base declarativa SQLAlchemy
+│   │   ├── models.py          # Modelos de datos (Propiedades, Usuarios, etc)
+│   │   └── session.py         # Sesión y conexión a la base de datos
+│   │
+│   ├── schemas/               # Esquemas Pydantic para validación y serialización
+│   │   ├── property.py
+│   │   ├── user.py
+│   │   └── favorite.py
+│   │
+│   ├── services/              # Lógica de negocio, servicios auxiliares
+│   │   └── recommendation.py # Algoritmos de recomendación
+│   │
+│   ├── main.py                # Punto de entrada de la aplicación FastAPI
+│   └── dependencies.py        # Dependencias y middlewares
+│
+├── tests/                     # Pruebas unitarias e integradas
+│   ├── test_auth.py
+│   ├── test_properties.py
+│   └── test_favorites.py
+│
+├── Dockerfile                 # Para contenerizar el backend
+├── requirements.txt           # Dependencias Python
+├── alembic.ini                # Configuración de migraciones
+└── README.md                  # Documentación específica del backend
+```
+
+
 ### Funcionalidades Principales
 
 1. **Autenticación de Usuarios**
@@ -181,71 +193,6 @@ npm run test:watch       # Modo watch para desarrollo
    - Las recomendaciones se basan en ciudad, tipo y precio similar
    - Ve las razones de similitud para cada recomendación
 
-### Componentes Principales
-
-#### PropertyCard
-- Muestra información completa de una propiedad
-- Manejo de errores de imagen con fallback
-- Botón de favoritos integrado
-- Indicador de selección para recomendaciones
-- **Optimización**: Imágenes optimizadas con Next.js Image
-- **Testing**: Verifica título, ciudad e imagen
-
-#### Navbar
-- Barra de navegación responsive
-- Menú de usuario con avatar
-- Acceso rápido a perfil y logout
-- Contador de favoritos en tiempo real
-- **Optimización**: Avatar optimizado con Next.js Image
-
-#### FavoritesList
-- Lista dedicada de propiedades favoritas
-- Gestión completa de favoritos
-- Diseño consistente con PropertyCard
-- Navegación fácil entre favoritos
-
-#### SearchBar
-- Búsqueda en tiempo real con debounce
-- Botón de limpiar búsqueda
-- Indicador de estado de búsqueda
-
-#### Filters
-- Filtros por ciudad y tipo de propiedad
-- Rango de precios con inputs numéricos
-- Filtros activos visibles
-- Botón para limpiar todos los filtros
-
-#### Pagination
-- Navegación por páginas
-- Botones anterior/siguiente
-- Números de página con ellipsis
-- Información de página actual
-
-#### RecommendationList
-- Lista de propiedades recomendadas
-- Muestra puntuación de similitud
-- Razones de recomendación
-- Navegación fácil entre recomendaciones
-
-## 🎨 Diseño y UX
-
-### Principios de Diseño
-- **Simplicidad**:    Interfaz limpia y fácil de usar
-- **Consistencia**:   Componentes reutilizables con estilos coherentes
-- **Accesibilidad**:  Navegación por teclado y ARIA labels
-- **Responsive**:     Funciona perfectamente en móvil, tablet y desktop
-
-### Sistema de Colores
-- **Primario**: Azul (#2563eb)
-- **Secundario**: Gris (#6b7280)
-- **Éxito**: Verde (#10b981)
-- **Error**: Rojo (#ef4444)
-- **Advertencia**: Amarillo (#f59e0b)
-
-### Tipografía
-- **Fuente principal**: Inter (sans-serif)
-- **Jerarquía clara**: Títulos, subtítulos, cuerpo y captions
-- **Legibilidad**: Contraste adecuado y espaciado
 
 ## 🔧 Configuración
 
