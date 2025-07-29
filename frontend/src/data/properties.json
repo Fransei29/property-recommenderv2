@@ -1,0 +1,582 @@
+[
+  {
+    "id": 1,
+    "titulo": "Casa amplia en Córdoba",
+    "ciudad": "Córdoba",
+    "tipo": "Casa",
+    "precio": 225985,
+    "ambientes": 5,
+    "metros_cuadrados": 105,
+    "imagen": "https://plus.unsplash.com/premium_photo-1661962841993-99a07c27c9f4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 2,
+    "titulo": "Departamento tipo loft en La Plata",
+    "ciudad": "La Plata",
+    "tipo": "Departamento",
+    "precio": 91172,
+    "ambientes": 1,
+    "metros_cuadrados": 46,
+    "imagen": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 3,
+    "titulo": "Casa con jardín en Rosario",
+    "ciudad": "Rosario",
+    "tipo": "Casa",
+    "precio": 193263,
+    "ambientes": 7,
+    "metros_cuadrados": 157,
+    "imagen": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 4,
+    "titulo": "Casa de dos plantas en Córdoba",
+    "ciudad": "Córdoba",
+    "tipo": "Casa",
+    "precio": 151513,
+    "ambientes": 5,
+    "metros_cuadrados": 94,
+    "imagen": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 5,
+    "titulo": "Casa con jardín en Neuquén",
+    "ciudad": "Neuquén",
+    "tipo": "Casa",
+    "precio": 146505,
+    "ambientes": 7,
+    "metros_cuadrados": 195,
+    "imagen": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 6,
+    "titulo": "Departamento tipo loft en Rosario",
+    "ciudad": "Rosario",
+    "tipo": "Departamento",
+    "precio": 81353,
+    "ambientes": 5,
+    "metros_cuadrados": 69,
+    "imagen": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 7,
+    "titulo": "Casa de dos plantas en Buenos Aires",
+    "ciudad": "Buenos Aires",
+    "tipo": "Casa",
+    "precio": 191222,
+    "ambientes": 5,
+    "metros_cuadrados": 152,
+    "imagen": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 8,
+    "titulo": "Monoambiente céntrico en Buenos Aires",
+    "ciudad": "Buenos Aires",
+    "tipo": "Departamento",
+    "precio": 90305,
+    "ambientes": 6,
+    "metros_cuadrados": 81,
+    "imagen": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 9,
+    "titulo": "Casa moderna en La Plata",
+    "ciudad": "La Plata",
+    "tipo": "Casa",
+    "precio": 160485,
+    "ambientes": 4,
+    "metros_cuadrados": 122,
+    "imagen": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 10,
+    "titulo": "Monoambiente céntrico en La Plata",
+    "ciudad": "La Plata",
+    "tipo": "Departamento",
+    "precio": 91908,
+    "ambientes": 5,
+    "metros_cuadrados": 48,
+    "imagen": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 11,
+    "titulo": "Casa con jardín en Salta",
+    "ciudad": "Salta",
+    "tipo": "Casa",
+    "precio": 223746,
+    "ambientes": 7,
+    "metros_cuadrados": 194,
+    "imagen": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 12,
+    "titulo": "Casa de dos plantas en La Plata",
+    "ciudad": "La Plata",
+    "tipo": "Casa",
+    "precio": 179947,
+    "ambientes": 6,
+    "metros_cuadrados": 96,
+    "imagen": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 13,
+    "titulo": "Casa familiar en La Plata",
+    "ciudad": "La Plata",
+    "tipo": "Casa",
+    "precio": 143117,
+    "ambientes": 3,
+    "metros_cuadrados": 133,
+    "imagen": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 14,
+    "titulo": "Casa de dos plantas en La Plata",
+    "ciudad": "La Plata",
+    "tipo": "Casa",
+    "precio": 172806,
+    "ambientes": 4,
+    "metros_cuadrados": 126,
+    "imagen": "https://plus.unsplash.com/premium_photo-1661962841993-99a07c27c9f4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 15,
+    "titulo": "Monoambiente céntrico en Salta",
+    "ciudad": "Salta",
+    "tipo": "Departamento",
+    "precio": 116333,
+    "ambientes": 3,
+    "metros_cuadrados": 37,
+    "imagen": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 16,
+    "titulo": "Departamento con balcón en La Plata",
+    "ciudad": "La Plata",
+    "tipo": "Departamento",
+    "precio": 117481,
+    "ambientes": 6,
+    "metros_cuadrados": 64,
+    "imagen": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 17,
+    "titulo": "Casa familiar en La Plata",
+    "ciudad": "La Plata",
+    "tipo": "Casa",
+    "precio": 239274,
+    "ambientes": 4,
+    "metros_cuadrados": 170,
+    "imagen": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 18,
+    "titulo": "Casa de dos plantas en Rosario",
+    "ciudad": "Rosario",
+    "tipo": "Casa",
+    "precio": 181015,
+    "ambientes": 7,
+    "metros_cuadrados": 197,
+    "imagen": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&h=300&fit=crop"
+  },
+  {
+    "id": 19,
+    "titulo": "Casa familiar en Córdoba",
+    "ciudad": "Córdoba",
+    "tipo": "Casa",
+    "precio": 190973,
+    "ambientes": 4,
+    "metros_cuadrados": 119,
+    "imagen": "https://plus.unsplash.com/premium_photo-1661962841993-99a07c27c9f4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": 20,
+    "titulo": "Departamento moderno en Córdoba",
+    "ciudad": "Córdoba",
+    "tipo": "Departamento",
+    "precio": 96160,
+    "ambientes": 4,
+    "metros_cuadrados": 87,
+    "imagen": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop"
+  },
+    {
+      "id": 21,
+      "titulo": "Casa familiar en Mar del Plata",
+      "ciudad": "Mar del Plata",
+      "tipo": "Casa",
+      "precio": 147736,
+      "ambientes": 5,
+      "metros_cuadrados": 199,
+      "imagen": "https://plus.unsplash.com/premium_photo-1661962841993-99a07c27c9f4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 22,
+      "titulo": "Departamento con balcón en Rosario",
+      "ciudad": "Rosario",
+      "tipo": "Departamento",
+      "precio": 70932,
+      "ambientes": 4,
+      "metros_cuadrados": 84,
+      "imagen": "https://plus.unsplash.com/premium_photo-1661962841993-99a07c27c9f4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 23,
+      "titulo": "Casa familiar en Buenos Aires",
+      "ciudad": "Buenos Aires",
+      "tipo": "Casa",
+      "precio": 183506,
+      "ambientes": 5,
+      "metros_cuadrados": 137,
+      "imagen": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 24,
+      "titulo": "Departamento con balcón en Mendoza",
+      "ciudad": "Mendoza",
+      "tipo": "Departamento",
+      "precio": 122790,
+      "ambientes": 2,
+      "metros_cuadrados": 30,
+      "imagen": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 25,
+      "titulo": "Monoambiente céntrico en Mar del Plata",
+      "ciudad": "Mar del Plata",
+      "tipo": "Departamento",
+      "precio": 97604,
+      "ambientes": 5,
+      "metros_cuadrados": 80,
+      "imagen": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 26,
+      "titulo": "Departamento con balcón en Buenos Aires",
+      "ciudad": "Buenos Aires",
+      "tipo": "Departamento",
+      "precio": 71984,
+      "ambientes": 6,
+      "metros_cuadrados": 66,
+      "imagen": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 27,
+      "titulo": "Departamento tipo loft en Salta",
+      "ciudad": "Salta",
+      "tipo": "Departamento",
+      "precio": 127236,
+      "ambientes": 4,
+      "metros_cuadrados": 82,
+      "imagen": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 28,
+      "titulo": "Casa de dos plantas en Córdoba",
+      "ciudad": "Córdoba",
+      "tipo": "Casa",
+      "precio": 189874,
+      "ambientes": 6,
+      "metros_cuadrados": 91,
+      "imagen": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 29,
+      "titulo": "Monoambiente céntrico en La Plata",
+      "ciudad": "La Plata",
+      "tipo": "Departamento",
+      "precio": 121237,
+      "ambientes": 1,
+      "metros_cuadrados": 79,
+      "imagen": "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 30,
+      "titulo": "Departamento con balcón en Córdoba",
+      "ciudad": "Córdoba",
+      "tipo": "Departamento",
+      "precio": 114865,
+      "ambientes": 1,
+      "metros_cuadrados": 54,
+      "imagen": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 31,
+      "titulo": "Casa familiar en Mar del Plata",
+      "ciudad": "Mar del Plata",
+      "tipo": "Casa",
+      "precio": 172899,
+      "ambientes": 5,
+      "metros_cuadrados": 198,
+      "imagen": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 32,
+      "titulo": "Casa familiar en Buenos Aires",
+      "ciudad": "Buenos Aires",
+      "tipo": "Casa",
+      "precio": 217156,
+      "ambientes": 5,
+      "metros_cuadrados": 110,
+      "imagen": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 33,
+      "titulo": "Casa moderna en La Plata",
+      "ciudad": "La Plata",
+      "tipo": "Casa",
+      "precio": 178654,
+      "ambientes": 5,
+      "metros_cuadrados": 134,
+      "imagen": "https://plus.unsplash.com/premium_photo-1661962841993-99a07c27c9f4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 34,
+      "titulo": "Casa de dos plantas en Neuquén",
+      "ciudad": "Neuquén",
+      "tipo": "Casa",
+      "precio": 156535,
+      "ambientes": 3,
+      "metros_cuadrados": 192,
+     "imagen": "https://plus.unsplash.com/premium_photo-1661962841993-99a07c27c9f4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 35,
+      "titulo": "Departamento luminoso en Rosario",
+      "ciudad": "Rosario",
+      "tipo": "Departamento",
+      "precio": 109611,
+      "ambientes": 6,
+      "metros_cuadrados": 87,
+      "imagen": "https://plus.unsplash.com/premium_photo-1661962841993-99a07c27c9f4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 36,
+      "titulo": "Casa familiar en Buenos Aires",
+      "ciudad": "Buenos Aires",
+      "tipo": "Casa",
+      "precio": 197613,
+      "ambientes": 6,
+      "metros_cuadrados": 113,
+     "imagen": "https://plus.unsplash.com/premium_photo-1661962841993-99a07c27c9f4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 37,
+      "titulo": "Casa de dos plantas en Buenos Aires",
+      "ciudad": "Buenos Aires",
+      "tipo": "Casa",
+      "precio": 194318,
+      "ambientes": 5,
+      "metros_cuadrados": 163,
+      "imagen": "https://plus.unsplash.com/premium_photo-1661962841993-99a07c27c9f4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 38,
+      "titulo": "Casa moderna en La Plata",
+      "ciudad": "La Plata",
+      "tipo": "Casa",
+      "precio": 172326,
+      "ambientes": 4,
+      "metros_cuadrados": 198,
+      "imagen": "https://plus.unsplash.com/premium_photo-1661962841993-99a07c27c9f4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 39,
+      "titulo": "Departamento con balcón en Rosario",
+      "ciudad": "Rosario",
+      "tipo": "Departamento",
+      "precio": 74768,
+      "ambientes": 1,
+      "metros_cuadrados": 65,
+      "imagen": "https://plus.unsplash.com/premium_photo-1661962841993-99a07c27c9f4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 41,
+      "titulo": "Monoambiente céntrico en Mar del Plata",
+      "ciudad": "Mar del Plata",
+      "tipo": "Departamento",
+      "precio": 103347,
+      "ambientes": 3,
+      "metros_cuadrados": 69,
+      "imagen": "https://plus.unsplash.com/premium_photo-1661962841993-99a07c27c9f4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 42,
+      "titulo": "Departamento luminoso en Buenos Aires",
+      "ciudad": "Buenos Aires",
+      "tipo": "Departamento",
+      "precio": 96099,
+      "ambientes": 1,
+      "metros_cuadrados": 76,
+     "imagen": "https://plus.unsplash.com/premium_photo-1661962841993-99a07c27c9f4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 43,
+      "titulo": "Casa de dos plantas en La Plata",
+      "ciudad": "La Plata",
+      "tipo": "Casa",
+      "precio": 223674,
+      "ambientes": 5,
+      "metros_cuadrados": 158,
+      "imagen": "https://plus.unsplash.com/premium_photo-1661962841993-99a07c27c9f4?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 44,
+      "titulo": "Departamento tipo loft en Mendoza",
+      "ciudad": "Mendoza",
+      "tipo": "Departamento",
+      "precio": 70575,
+      "ambientes": 1,
+      "metros_cuadrados": 84,
+      "imagen": "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 45,
+      "titulo": "Departamento moderno en Mar del Plata",
+      "ciudad": "Mar del Plata",
+      "tipo": "Departamento",
+      "precio": 92783,
+      "ambientes": 1,
+      "metros_cuadrados": 56,
+      "imagen": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 46,
+      "titulo": "Casa con jardín en Salta",
+      "ciudad": "Salta",
+      "tipo": "Casa",
+      "precio": 224223,
+      "ambientes": 3,
+      "metros_cuadrados": 193,
+      "imagen": "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 47,
+      "titulo": "Casa con jardín en Salta",
+      "ciudad": "Salta",
+      "tipo": "Casa",
+      "precio": 141276,
+      "ambientes": 7,
+      "metros_cuadrados": 92,
+      "imagen": "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 48,
+      "titulo": "Casa de dos plantas en Mendoza",
+      "ciudad": "Mendoza",
+      "tipo": "Casa",
+      "precio": 219176,
+      "ambientes": 3,
+      "metros_cuadrados": 91,
+      "imagen": "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 49,
+      "titulo": "Casa amplia en Salta",
+      "ciudad": "Salta",
+      "tipo": "Casa",
+      "precio": 246424,
+      "ambientes": 4,
+      "metros_cuadrados": 100,
+      "imagen": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 50,
+      "titulo": "Casa amplia en Buenos Aires",
+      "ciudad": "Buenos Aires",
+      "tipo": "Casa",
+      "precio": 171200,
+      "ambientes": 7,
+      "metros_cuadrados": 130,
+      "imagen": "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 51,
+      "titulo": "Casa con jardín en La Plata",
+      "ciudad": "La Plata",
+      "tipo": "Casa",
+      "precio": 161458,
+      "ambientes": 5,
+      "metros_cuadrados": 181,
+      "imagen": "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 52,
+      "titulo": "Departamento con balcón en La Plata",
+      "ciudad": "La Plata",
+      "tipo": "Departamento",
+      "precio": 71965,
+      "ambientes": 5,
+      "metros_cuadrados": 31,
+      "imagen": "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 53,
+      "titulo": "Casa amplia en Buenos Aires",
+      "ciudad": "Buenos Aires",
+      "tipo": "Casa",
+      "precio": 215462,
+      "ambientes": 3,
+      "metros_cuadrados": 102,
+      "imagen": "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 54,
+      "titulo": "Departamento con balcón en Mendoza",
+      "ciudad": "Mendoza",
+      "tipo": "Departamento",
+      "precio": 91886,
+      "ambientes": 2,
+      "metros_cuadrados": 65,
+      "imagen": "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 55,
+      "titulo": "Departamento tipo loft en Mendoza",
+      "ciudad": "Mendoza",
+      "tipo": "Departamento",
+      "precio": 89155,
+      "ambientes": 5,
+      "metros_cuadrados": 88,
+      "imagen": "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 56,
+      "titulo": "Monoambiente céntrico en La Plata",
+      "ciudad": "La Plata",
+      "tipo": "Departamento",
+      "precio": 95379,
+      "ambientes": 6,
+      "metros_cuadrados": 66,
+      "imagen": "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 57,
+      "titulo": "Departamento tipo loft en La Plata",
+      "ciudad": "La Plata",
+      "tipo": "Departamento",
+      "precio": 74511,
+      "ambientes": 6,
+      "metros_cuadrados": 30,
+      "imagen": "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 58,
+      "titulo": "Casa con jardín en Mar del Plata",
+      "ciudad": "Mar del Plata",
+      "tipo": "Casa",
+      "precio": 154792,
+      "ambientes": 7,
+      "metros_cuadrados": 156,
+      "imagen": "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 59,
+      "titulo": "Departamento tipo loft en La Plata",
+      "ciudad": "La Plata",
+      "tipo": "Departamento",
+      "precio": 114388,
+      "ambientes": 6,
+      "metros_cuadrados": 38,
+      "imagen": "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+  ]

@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    container_name: property_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: inmobiliaria_db
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: contraseña
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - property_network
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: property_backend
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=mysql+pymysql://usuario:contraseña@mysql:3306/inmobiliaria_db
+      - SECRET_KEY=esta_es_una_clave_muy_secreta_y_larga_para_produccion
+      - ACCESS_TOKEN_EXPIRE_MINUTES=60
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+    volumes:
+      - ./backend/app:/app
+    networks:
+      - property_network
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: property_frontend
+    restart: unless-stopped
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXTAUTH_URL=http://localhost:3001
+      - NEXTAUTH_SECRET=tu_nextauth_secret_aqui
+    ports:
+      - "3001:3000"
+    depends_on:
+      - backend
+    networks:
+      - property_network
+
+volumes:
+  mysql_data:
+
+networks:
+  property_network:
+    driver: bridge 
