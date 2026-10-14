@@ -13,4 +13,4 @@ export { calculateSimilarity, generateSimilarityReasons, getRecommendations } fr
 export { filterProperties, getPropertyTypeLabel, getPriceRange } from './filterUtils';
 
 // Funciones de formateo
-export { formatPrice } from './formatUtils'; 
+export { formatPrice, formatPropertyPrice, getOperacionLabel, resolveImageUrl } from './formatUtils'; 

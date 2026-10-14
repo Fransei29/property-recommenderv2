@@ -5,7 +5,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { PropertyCardProps } from '../../types/types';
-import { formatPrice, getPropertyTypeLabel } from '../../utils';
+import { formatPropertyPrice, getOperacionLabel, getPropertyTypeLabel, resolveImageUrl } from '../../utils';
 import styles from './PropertyCard.module.scss';
 
 export const PropertyCard: React.FC<PropertyCardProps> = ({
@@ -46,8 +46,8 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
       {/* Imagen de la propiedad */}
       <div className={styles.imageContainer}>
         {!imageError ? (
-          <Image 
-            src={property.imagen} 
+          <Image
+            src={resolveImageUrl(property.imagen)}
             alt={property.titulo}
             width={400}
             height={300}
@@ -68,10 +68,16 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
           </div>
         )}
         
-        {/* Badge de tipo */}
+        {/* Badges de tipo y operación */}
         <div className={styles.typeBadge}>
           {getPropertyTypeLabel(property.tipo)}
         </div>
+        <div className={`${styles.operacionBadge} ${property.operacion === 'alquiler' ? styles.alquiler : ''}`}>
+          {getOperacionLabel(property.operacion)}
+        </div>
+        {property.imagenes && property.imagenes.length > 0 && (
+          <div className={styles.photoCount}>📷 {property.imagenes.length + 1}</div>
+        )}
         
         {/* Botón de favorito */}
         <button
@@ -103,7 +109,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
         {/* Precio */}
         <div className={styles.price}>
           <span className={styles.priceAmount}>
-            {formatPrice(property.precio)}
+            {formatPropertyPrice(property)}
           </span>
         </div>
 
@@ -137,7 +143,7 @@ export const PropertyCard: React.FC<PropertyCardProps> = ({
         {/* Características destacadas */}
         {property.caracteristicas && property.caracteristicas.length > 0 && (
           <div className={styles.features}>
-            {property.caracteristicas.slice(0, 3).map((feature, index) => (
+            {property.caracteristicas.slice(0, 3).map((feature: string, index: number) => (
               <span key={index} className={styles.feature}>
                 {feature}
               </span>

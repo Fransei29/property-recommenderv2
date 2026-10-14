@@ -1,16 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
-import { signIn } from 'next-auth/react';
+import { signIn, getSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { TenantSelect } from '@/components/TenantSelect/TenantSelect';
 import styles from '../auth.module.scss';
 
 export default function SignInPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
-    password: ''
+    password: '',
+    tenantSlug: ''
   });
   const router = useRouter();
 
@@ -22,17 +24,50 @@ export default function SignInPage() {
       const result = await signIn('credentials', {
         email: formData.email,
         password: formData.password,
+        tenant_slug: formData.tenantSlug,
         redirect: false,
       });
 
       if (result?.error) {
-        // Handle error
+        alert('Error al iniciar sesión. Verifica tus credenciales.');
       } else {
-        router.push('/');
+        // Los callbacks de NextAuth corren en el servidor: copiar el token de la sesión al navegador
+        const session = await getSession();
+        const token = (session?.user as { accessToken?: string } | undefined)?.accessToken || null;
+        if (token) {
+          localStorage.setItem('auth_token', token);
+          localStorage.setItem('tenant_slug', formData.tenantSlug);
+        }
+        if (!token) {
+          console.warn('Token no encontrado en localStorage después del login');
+        }
+        
+        // Redirigir según el rol del usuario
         router.refresh();
+        setTimeout(() => {
+          // Intentar obtener el rol del token en localStorage
+          let userRole = null;
+          if (token) {
+            try {
+              const payload = JSON.parse(atob(token.split('.')[1]));
+              userRole = payload.role;
+            } catch (e) {
+              console.error('Error decodificando token:', e);
+            }
+          }
+          
+          // Redirigir a /admin si el rol es 'admin' o 'tenant_admin'
+          if (userRole === 'admin' || userRole === 'tenant_admin') {
+            router.push('/admin');
+          } else {
+            // Usuario normal - ir al sitio de su inmobiliaria
+            router.push(`/inmobiliaria/${formData.tenantSlug}`);
+          }
+        }, 300);
       }
-    } catch {
-      // Handle error silently
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Error al iniciar sesión';
+      alert('Error: ' + errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -102,6 +137,15 @@ export default function SignInPage() {
           </div>
 
           <form onSubmit={handleSubmit} className={styles.form}>
+            <div className={styles.field}>
+              <label htmlFor="tenant">Inmobiliaria</label>
+              <TenantSelect
+                value={formData.tenantSlug}
+                onChange={(tenantSlug) => setFormData((prev) => ({ ...prev, tenantSlug }))}
+                includeGlobalAdmin
+              />
+            </div>
+
             <div className={styles.field}>
               <label htmlFor="email">Email</label>
               <input

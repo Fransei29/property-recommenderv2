@@ -108,6 +108,20 @@
   }
 }
 
+.loginButton {
+  padding: 0.5rem 1rem;
+  background: #2563eb;
+  color: #ffffff;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+
+  &:hover {
+    background: #1d4ed8;
+  }
+}
+
 .actionButton {
   background: none;
   border: none;

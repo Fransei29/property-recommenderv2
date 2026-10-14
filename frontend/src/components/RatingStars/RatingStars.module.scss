@@ -1,0 +1,68 @@
+.ratingStars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.star {
+  color: #e5e5e5;
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: color 0.2s ease;
+  user-select: none;
+
+  &.filled {
+    color: #1a1a1a;
+  }
+
+  &.half {
+    background: linear-gradient(90deg, #1a1a1a 50%, #e5e5e5 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &.clickable {
+    cursor: pointer;
+
+    &:hover {
+      color: #1a1a1a;
+      transform: scale(1.05);
+    }
+  }
+}
+
+.ratingValue {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  color: #999;
+  font-weight: 300;
+}
+
+// Sizes
+.small {
+  .star {
+    font-size: 0.9rem;
+  }
+
+  .ratingValue {
+    font-size: 0.75rem;
+  }
+}
+
+.medium {
+  .star {
+    font-size: 1.2rem;
+  }
+}
+
+.large {
+  .star {
+    font-size: 1.5rem;
+  }
+
+  .ratingValue {
+    font-size: 1rem;
+  }
+}
+

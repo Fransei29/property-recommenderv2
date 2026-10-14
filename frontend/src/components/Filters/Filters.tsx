@@ -4,7 +4,6 @@
 
 import React, { useState, useCallback } from 'react';
 import { PropertyFilters } from '../../types/types';
-import { formatPrice } from '../../utils';
 import styles from './Filters.module.scss';
 
 interface FiltersProps {
@@ -24,7 +23,7 @@ export const Filters: React.FC<FiltersProps> = ({
   tiposPropiedad,
   className = ''
 }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   const handleInputChange = (field: keyof PropertyFilters, value: string | number | undefined) => {
     onFiltersChange({
@@ -72,6 +71,23 @@ export const Filters: React.FC<FiltersProps> = ({
 
       {/* Contenido de filtros */}
       <div className={`${styles.content} ${isExpanded ? styles.expanded : ''}`}>
+        {/* Filtro por operación */}
+        <div className={styles.filterGroup}>
+          <label htmlFor="operacion-filter" className={styles.label}>
+            Operación
+          </label>
+          <select
+            id="operacion-filter"
+            value={filters.operacion || ''}
+            onChange={(e) => handleInputChange('operacion', e.target.value || undefined)}
+            className={styles.select}
+          >
+            <option value="">Venta y alquiler</option>
+            <option value="venta">Venta</option>
+            <option value="alquiler">Alquiler</option>
+          </select>
+        </div>
+
         {/* Filtro por ciudad */}
         <div className={styles.filterGroup}>
           <label htmlFor="ciudad-filter" className={styles.label}>
@@ -167,6 +183,18 @@ export const Filters: React.FC<FiltersProps> = ({
           <div className={styles.activeFilters}>
             <span className={styles.activeFiltersLabel}>Filtros activos:</span>
             <div className={styles.activeFiltersList}>
+              {filters.operacion && (
+                <span className={styles.activeFilter}>
+                  {filters.operacion === 'venta' ? 'Venta' : 'Alquiler'}
+                  <button
+                    onClick={() => handleInputChange('operacion', undefined)}
+                    className={styles.removeFilter}
+                    aria-label="Remover filtro de operación"
+                  >
+                    ×
+                  </button>
+                </span>
+              )}
               {filters.ciudad && (
                 <span className={styles.activeFilter}>
                   Ciudad: {filters.ciudad}
@@ -193,7 +221,7 @@ export const Filters: React.FC<FiltersProps> = ({
               )}
               {(filters.precioMin || filters.precioMax) && (
                 <span className={styles.activeFilter}>
-                  Precio: {filters.precioMin ? formatPrice(filters.precioMin) : '0'} - {filters.precioMax ? formatPrice(filters.precioMax) : 'Sin límite'}
+                  Precio: {filters.precioMin ? filters.precioMin.toLocaleString('es-AR') : '0'} - {filters.precioMax ? filters.precioMax.toLocaleString('es-AR') : 'Sin límite'}
                   <button
                     onClick={() => {
                       handleInputChange('precioMin', undefined);

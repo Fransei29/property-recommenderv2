@@ -7,6 +7,8 @@ import LayoutWrapper from "../components/LayoutWrapper/LayoutWrapper";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  // Base para las URLs absolutas de las vistas previas (Open Graph)
+  metadataBase: new URL(process.env.NEXTAUTH_URL || 'http://localhost:3000'),
   title: "Habita - Sistema de Recomendación de Propiedades",
   description: "Encuentra tu próxima propiedad con nuestro sistema inteligente de recomendaciones",
   icons: {

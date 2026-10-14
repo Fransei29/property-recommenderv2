@@ -94,7 +94,7 @@ export const FavoritesList: React.FC<FavoritesListProps> = ({
               {/* Imagen */}
               <div className={styles.imageContainer}>
                 <Image 
-                  src={property.imagen} 
+                  src={property.imagen || '/home.jpg'}
                   alt={property.titulo}
                   width={300}
                   height={200}

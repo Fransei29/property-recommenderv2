@@ -15,7 +15,8 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./backend/init.sql:/docker-entrypoint-initdb.d/01-init.sql
+      - ./backend/migrate_add_reviews.sql:/docker-entrypoint-initdb.d/02-reviews.sql
     networks:
       - property_network
 
@@ -27,18 +28,24 @@ services:
     container_name: property_backend
     restart: unless-stopped
     environment:
-      - DATABASE_URL=mysql+pymysql://usuario:contraseña@mysql:3306/inmobiliaria_db
+      - PORT=8000
+      - DB_HOST=mysql
+      - DB_USER=usuario
+      - DB_PASSWORD=contraseña
+      - DB_NAME=inmobiliaria_db
       - SECRET_KEY=esta_es_una_clave_muy_secreta_y_larga_para_produccion
       - ACCESS_TOKEN_EXPIRE_MINUTES=60
+      - CORS_ORIGINS=http://localhost:3000,http://localhost:3001
     ports:
       - "8000:8000"
     depends_on:
       - mysql
     volumes:
-      - ./backend/app:/app
+      - ./backend/src:/app/src
+      - ./backend/uploads:/app/uploads
     networks:
       - property_network
-    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+    command: ["npm", "start"]
 
   # Frontend
   frontend:
@@ -49,6 +56,7 @@ services:
     restart: unless-stopped
     environment:
       - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - API_INTERNAL_URL=http://backend:8000
       - NEXTAUTH_URL=http://localhost:3001
       - NEXTAUTH_SECRET=tu_nextauth_secret_aqui
     ports:

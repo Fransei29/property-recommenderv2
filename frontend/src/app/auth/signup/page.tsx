@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { TenantSelect } from '@/components/TenantSelect/TenantSelect';
 import styles from '../auth.module.scss';
 
 export default function SignUpPage() {
@@ -13,6 +14,7 @@ export default function SignUpPage() {
     password: ''
   });
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [tenantSlug, setTenantSlug] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const router = useRouter();
@@ -37,16 +39,23 @@ export default function SignUpPage() {
     }
 
     try {
-      // En una implementación real, aquí harías una llamada a tu API para registrar al usuario
-      // Por ahora, simulamos el registro exitoso
+      const { authAPI } = await import('@/lib/api');
+      
+      await authAPI.register({
+        username: formData.name,
+        email: formData.email,
+        password: formData.password,
+        role: 'user'
+      }, tenantSlug);
+      
       setSuccess('Cuenta creada exitosamente. Redirigiendo al inicio de sesión...');
       
-      // Simulamos un delay y redirigimos al login
       setTimeout(() => {
         router.push('/auth/signin');
       }, 2000);
-    } catch {
-      setError('Ocurrió un error al crear la cuenta');
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Ocurrió un error al crear la cuenta';
+      setError(errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -127,6 +136,11 @@ export default function SignUpPage() {
                 {success}
               </div>
             )}
+
+            <div className={styles.field}>
+              <label htmlFor="tenant">Inmobiliaria</label>
+              <TenantSelect value={tenantSlug} onChange={setTenantSlug} />
+            </div>
 
             <div className={styles.field}>
               <label htmlFor="name">Nombre completo</label>

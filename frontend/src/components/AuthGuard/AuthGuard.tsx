@@ -13,17 +13,25 @@ export default function AuthGuard({ children }: AuthGuardProps) {
   const router = useRouter();
   const pathname = usePathname();
 
-  // Rutas que no requieren autenticación
-  const publicRoutes = useMemo(() => ['/auth/signin', '/auth/signup'], []);
+  // Las páginas son públicas salvo las que muestran datos de la cuenta
+  const isProtected = useMemo(
+    () => ['/profile'].some(route => pathname?.startsWith(route)),
+    [pathname]
+  );
 
   useEffect(() => {
     if (status === 'loading') return; // Esperar a que se cargue la sesión
 
     // Si no hay sesión y no estamos en una ruta pública, redirigir al login
-    if (session === null && !publicRoutes.includes(pathname)) {
+    if (session === null && isProtected) {
       router.push('/auth/signin');
     }
-  }, [session, status, router, pathname, publicRoutes]);
+  }, [session, status, router, isProtected]);
+
+  // Las páginas públicas se muestran sin esperar la sesión
+  if (!isProtected) {
+    return <>{children}</>;
+  }
 
   // Mostrar loading mientras se verifica la autenticación
   if (status === 'loading') {
@@ -61,11 +69,6 @@ export default function AuthGuard({ children }: AuthGuardProps) {
         </div>
       </div>
     );
-  }
-
-  // Si estamos en una ruta pública, mostrar el contenido sin verificar sesión
-  if (publicRoutes.includes(pathname)) {
-    return <>{children}</>;
   }
 
   // Si no hay sesión y no estamos en una ruta pública, no renderizar nada (se redirigirá)

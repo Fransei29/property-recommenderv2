@@ -2,30 +2,19 @@
  * Tipos TypeScript para el sistema de recomendación de propiedades
  */
 
-// Tipo de propiedad inmobiliaria (basado en el JSON real)
-export interface Property {
-  id: number;
-  titulo: string;
-  ciudad: string;
-  tipo: PropertyType;
-  precio: number;
-  ambientes: number;
-  metros_cuadrados: number;
-  imagen: string;
-  // Campos opcionales que pueden ser generados o agregados después
-  descripcion?: string;
-  banos?: number;
-  ano_construccion?: number;
-  caracteristicas?: string[];
-}
+// Re-exportar Property desde api.ts para mantener compatibilidad
+import type { Property } from '../lib/api';
+export type { Property } from '../lib/api';
+export type { PropertyType } from '../lib/api';
 
 // Tipos de propiedades disponibles (adaptado al JSON real)
-export type PropertyType = 'Casa' | 'Departamento' | 'Condominio' | 'Casa adosada' | 'Terreno';
+export type PropertyTypeEnum = 'Casa' | 'Departamento' | 'Condominio' | 'Casa adosada' | 'Terreno';
 
 // Filtros para el listado de propiedades
 export interface PropertyFilters {
+  operacion?: 'venta' | 'alquiler';
   ciudad?: string;
-  tipo?: PropertyType;
+  tipo?: PropertyTypeEnum;
   precioMin?: number;
   precioMax?: number;
   searchQuery?: string;
@@ -82,7 +71,7 @@ export interface FiltersProps {
   onFiltersChange: (filters: PropertyFilters) => void;
   onClearFilters?: () => void;
   ciudades: string[];
-  tiposPropiedad: PropertyType[];
+  tiposPropiedad: PropertyTypeEnum[];
   className?: string;
 }
 

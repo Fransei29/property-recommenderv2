@@ -420,3 +420,114 @@
     }
   }
 } 
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.thumbnail {
+  flex-shrink: 0;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+  opacity: 0.7;
+  transition: opacity 0.15s ease-in-out, border-color 0.15s ease-in-out;
+
+  img {
+    display: block;
+    width: 96px;
+    height: 64px;
+    object-fit: cover;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.thumbnailActive {
+  border-color: #2563eb;
+  opacity: 1;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.operacionBadge {
+  display: inline-block;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  &.alquiler {
+    background: #059669;
+  }
+}
+
+.contactBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.whatsappButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1rem;
+  background: #25d366;
+  color: #ffffff;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease-in-out;
+
+  &:hover {
+    background: #1ebe5a;
+  }
+}
+
+.shareButton {
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:hover {
+    background: #f9fafb;
+  }
+}
+
+.publishedBy {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-align: center;
+}

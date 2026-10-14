@@ -1,0 +1,79 @@
+.inmobiliariaPage {
+  min-height: 100vh;
+  background: #fafafa;
+  padding: 0;
+}
+
+.content {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.loadingContainer,
+.errorContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.loading {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: center;
+}
+
+.error {
+  text-align: center;
+  max-width: 500px;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    margin: 0 0 1rem 0;
+    color: #f44336;
+    font-size: 1.5rem;
+  }
+
+  p {
+    margin: 0 0 1.5rem 0;
+    color: #666;
+  }
+}
+
+.backButton {
+  padding: 0.75rem 1.5rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background: #5568d3;
+  }
+}
+
+@media (max-width: 768px) {
+  .inmobiliariaPage {
+    padding: 0;
+  }
+
+  .content {
+    padding: 0;
+  }
+}
+

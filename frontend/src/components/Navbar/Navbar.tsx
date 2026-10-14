@@ -10,13 +10,11 @@ import Image from 'next/image';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
-  favoritesCount?: number;
   onLogoClick?: () => void;
   className?: string;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
-  favoritesCount = 0,
   onLogoClick,
   className = ''
 }) => {
@@ -39,7 +37,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   const handleSignOut = async () => {
-    await signOut({ callbackUrl: '/auth/signin' });
+    await signOut({ callbackUrl: '/' });
   };
 
   return (
@@ -66,6 +64,12 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Acciones */}
         <div className={styles.actions}>
+
+          {!session?.user && (
+            <Link href="/auth/signin" className={styles.loginButton}>
+              Ingresar
+            </Link>
+          )}
 
           {/* Menú de usuario */}
           {session?.user && (
@@ -141,21 +145,16 @@ export const Navbar: React.FC<NavbarProps> = ({
           <Link href="/" className={styles.mobileNavLink}>
             Inicio
           </Link>
-          <a href="#propiedades" className={styles.mobileNavLink}>
-            Propiedades
-          </a>
-          <a href="#favoritos" className={styles.mobileNavLink}>
-            Favoritos
-            {favoritesCount > 0 && (
-              <span className={styles.mobileFavoritesBadge}>
-                {favoritesCount}
-              </span>
-            )}
-          </a>
           <Link href="/contacto" className={styles.mobileNavLink}>
             Contacto
           </Link>
           
+          {!session?.user && (
+            <Link href="/auth/signin" className={styles.mobileNavLink}>
+              Ingresar
+            </Link>
+          )}
+
           {/* Información del usuario en móvil */}
           {session?.user && (
             <>

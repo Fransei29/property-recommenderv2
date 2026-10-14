@@ -14,6 +14,7 @@ import { flexibleTextSearch } from './searchUtils';
 export function filterProperties(
   properties: Property[],
   filters: {
+    operacion?: 'venta' | 'alquiler';
     ciudad?: string;
     tipo?: PropertyType;
     precioMin?: number;
@@ -22,6 +23,10 @@ export function filterProperties(
   }
 ): Property[] {
   return properties.filter(property => {
+    if (filters.operacion && (property.operacion || 'venta') !== filters.operacion) {
+      return false;
+    }
+
     // Filtro por ciudad (búsqueda flexible)
     if (filters.ciudad && !flexibleTextSearch(property.ciudad, filters.ciudad)) {
       return false;
@@ -65,7 +70,7 @@ export function filterProperties(
  * @param type - Tipo de propiedad
  * @returns Etiqueta en español
  */
-export function getPropertyTypeLabel(type: PropertyType): string {
+export function getPropertyTypeLabel(type: PropertyType | string): string {
   return type; // Ya está en español en el JSON
 }
 
